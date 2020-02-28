@@ -26,10 +26,8 @@ const int MOD = 1000000007; // 10^9 + 7
 
 class CorporationSalary {
   public:
-  ll memo[55];
+  ll memo[55] = {0};
   long long totalSalary(vector <string> relations) {
-    REP(i, 55) memo[i] = -1;
-
     ll ret = 0;
 
     REP(i, relations.size()) {
@@ -46,7 +44,7 @@ class CorporationSalary {
 
   private:
   ll salary(int i, vector<string> relations) {
-    if (memo[i] != -1) return memo[i];
+    if (memo[i] > 0) return memo[i];
 
     ll ret = 0;
     REP(j, relations.size()) {
